@@ -4,6 +4,13 @@ import Moto from "./models/Moto";
 import Carro from "./models/Carro";
 import Cliente from "./models/Cliente";
 
+function calcularValorDoAluguel(diasDeAluguel: string, cnhCliente: string): number {
+  if(cnh === 'a' || cnh === 'A'){
+    return Number((diasDeAluguel * '200') * 1.05);
+} else if(cnh === 'b' || cnh === 'B'){
+    return Number((diasDeAluguel * '400') * 1.10);
+};
+
 let menuOpcao: string;
 
 do {
@@ -76,6 +83,8 @@ Selecione a opcao:
         motosDisponiveis.forEach((e, i) =>
           console.log(`${++i}. Moto: ${e.marca} ${e.modelo} (${e.placa})`)
         );
+        let diasDeAluguel = rl.question('Quantos dias você ficará com o veículo?');
+        calcularValorDoAluguel(diasDeAluguel, cnh);
       } else {
         const carrosDisponiveis = Agencia.listarDisponiveis().filter(
           (e) => e.tipo === "B"
@@ -84,8 +93,12 @@ Selecione a opcao:
         carrosDisponiveis.forEach((e, i) =>
           console.log(`${++i}. Carro: ${e.marca} ${e.modelo} (${e.placa})`)
         );
+        let diasDeAluguel = rl.question('Quantos dias você ficará com o veículo?');
+
+        calcularValorDoAluguel(diasDeAluguel, cnh);
       }
 
+      
       const placaEscolhida = rl.question("Escolha o veiculo pela placa: ");
 
       cliente.alugar(placaEscolhida);
