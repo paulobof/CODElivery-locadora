@@ -1,7 +1,7 @@
-import { Agencia } from "./Agencia";
-import { Veiculo } from "./Veiculo";
+import Agencia from "./Agencia";
+import Veiculo from "./Veiculo";
 
-export class Cliente {
+export default class Cliente {
   public veiculo: Veiculo | null = null;
   constructor(public nome: string, public cpf: string, public cnh: string) {}
 
@@ -13,6 +13,10 @@ export class Cliente {
     if (veiculoEscolhido) {
       this.veiculo = veiculoEscolhido;
       veiculoEscolhido.alterarDisponibilidade();
+      
+      console.log("VEICULO ALUGADO COM SUCESSO!!!");
+    } else{
+      console.log("ERRO - NÃO FOI POSSIVEL ALUGAR O VEICULO!!!");
     }
   }
 }

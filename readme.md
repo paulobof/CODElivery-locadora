@@ -1,3 +1,7 @@
+## CODElivery-Emprestimo
+
+# TRABALHO ADA SEM SER TECH - MODULO02 POO - GRUPO - LOCADORA DE VEICULO
+
 Trabalho em Grupo - Módulo de Programação Orientada a Objetos
 
 SISTEMA PARA LOCADORA DE VEÍCULOS
@@ -39,3 +43,26 @@ O sistema oferecerá o seguinte menu de funcionalidades:
 
 Lembre-se de considerar a orientação a objetos em seu design e implementação do sistema.
 Boa codificação!
+
+# Resolução do exercício
+
+Você precisar ter instalado em seu computador: [GIT](https://git-scm.com/), [Node.js](https://github.com/rafael-neri/projeto-poo.git) e [Visual Studio Code](https://code.visualstudio.com/).
+
+Para executar o código typescript você precisa instalar o ts-node:
+```sh
+npm install -g ts-node
+```
+
+Para acessar o projeto:
+```sh
+git clone https://github.com/paulobof/CODElivery-locadora.git
+cd CODElivery-locadora
+code .
+```
+
+Para executar o projeto:
+```sh
+ts-node ./src/App.ts
+```
+
+Desenvolvido por CODElivery

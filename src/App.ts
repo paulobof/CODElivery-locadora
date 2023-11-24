@@ -1,8 +1,8 @@
 import rl from "readline-sync";
-import { Agencia } from "./Agencia";
-import { Moto } from "./Moto";
-import { Carro } from "./Carro";
-import { Cliente } from "./Cliente";
+import Agencia from "./models/Agencia";
+import Moto from "./models/Moto";
+import Carro from "./models/Carro";
+import Cliente from "./models/Cliente";
 
 let menuOpcao: string;
 
@@ -64,11 +64,11 @@ Selecione a opcao:
         cnh = rl.question(
           "Insira A para CNH de moto, ou B para CNH de carro: "
         );
-      } while (cnh !== "A" && cnh !== "B");
+      } while (cnh !== "A" && cnh !== "a" && cnh !== "B" && cnh !== "b");
 
       let cliente = new Cliente(nome, cpf, cnh);
 
-      if (cnh === "A") {
+      if (cnh === "A" || cnh === "a") {
         const motosDisponiveis = Agencia.listarDisponiveis().filter(
           (e) => e.tipo === "A"
         );

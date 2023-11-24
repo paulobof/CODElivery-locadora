@@ -1,9 +1,9 @@
-import { Carro } from "./Carro";
-import { Cliente } from "./Cliente";
-import { Moto } from "./Moto";
-import { Veiculo } from "./Veiculo";
+import Carro from "./Carro";
+import Cliente from "./Cliente";
+import Moto from "./Moto";
+import Veiculo from "./Veiculo";
 
-export class Agencia {
+export default class Agencia {
   static veiculos: Veiculo[] = [
     new Carro("ABC-1234", "Honda", "Civic", "Preto", 2015),
     new Moto("JKL-5678", "Honda", "XRE", "Vermelho", 2020),

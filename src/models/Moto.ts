@@ -1,7 +1,7 @@
-import { Veiculo } from "./Veiculo";
+import Veiculo from "./Veiculo";
 
-export class Carro extends Veiculo {
-  public tipo: string = "B" //Carro: CNH B
+export default class Moto extends Veiculo {
+  public tipo: string = "A" //Moto: CNH A
   constructor(
     public placa: string,
     public marca: string,
