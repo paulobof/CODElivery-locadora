@@ -1,4 +1,4 @@
-export class Veiculo {
+export abstract class Veiculo {
   public disponibilidade = true;
   public tipo: string = "";
 
