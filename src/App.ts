@@ -5,11 +5,16 @@ import Carro from "./models/Carro";
 import Cliente from "./models/Cliente";
 
 function calcularValorDoAluguel(diasDeAluguel: string, cnhCliente: string): number {
-  if(cnh === 'a' || cnh === 'A'){
-    return Number((diasDeAluguel * '200') * 1.05);
-} else if(cnh === 'b' || cnh === 'B'){
-    return Number((diasDeAluguel * '400') * 1.10);
+  let valoraluguel = 0
+  if(cnhCliente === 'a' || cnhCliente === 'A'){
+    valoraluguel = (Number(diasDeAluguel) * 200) * 1.05;
+    return valoraluguel;
+} else if(cnhCliente === 'b' || cnhCliente === 'B'){
+  valoraluguel = (Number(diasDeAluguel) * 400) * 1.10;
+    return valoraluguel;
 };
+return valoraluguel;
+}
 
 let menuOpcao: string;
 
@@ -75,6 +80,8 @@ Selecione a opcao:
 
       let cliente = new Cliente(nome, cpf, cnh);
 
+      if(!Agencia.verificarClienteCadastrado(cliente.cpf)){
+
       if (cnh === "A" || cnh === "a") {
         const motosDisponiveis = Agencia.listarDisponiveis().filter(
           (e) => e.tipo === "A"
@@ -84,7 +91,7 @@ Selecione a opcao:
           console.log(`${++i}. Moto: ${e.marca} ${e.modelo} (${e.placa})`)
         );
         let diasDeAluguel = rl.question('Quantos dias você ficará com o veículo?');
-        calcularValorDoAluguel(diasDeAluguel, cnh);
+        console.log(`O valor total do aluguel será R$${calcularValorDoAluguel(diasDeAluguel, cnh).toFixed(2)}`);
       } else {
         const carrosDisponiveis = Agencia.listarDisponiveis().filter(
           (e) => e.tipo === "B"
@@ -93,19 +100,36 @@ Selecione a opcao:
         carrosDisponiveis.forEach((e, i) =>
           console.log(`${++i}. Carro: ${e.marca} ${e.modelo} (${e.placa})`)
         );
-        let diasDeAluguel = rl.question('Quantos dias você ficará com o veículo?');
+        let diasDeAluguel = rl.question('Quantos dias voce ficara com o veiculo?');
 
-        calcularValorDoAluguel(diasDeAluguel, cnh);
+        console.log(`O valor total do aluguel será R$${calcularValorDoAluguel(diasDeAluguel, cnh).toFixed(2)}`);
       }
 
       
       const placaEscolhida = rl.question("Escolha o veiculo pela placa: ");
 
       cliente.alugar(placaEscolhida);
+    } else{
+        console.log(`Cliente de CPF: ${cliente.cpf} já está cadastrado!`);
+        
+      }
 
       break;
     case "3":
       // Devolver veiculo
+      console.log("DEVOLUCAO DE VEICULO");
+      console.log("Insira o CPF do cliente:");
+
+      const cpfCadastrado = rl.question("CPF: ");
+
+      if(Agencia.verificarClienteCadastrado(cpfCadastrado)){
+        let cliente = Agencia.encontrarCliente(cpfCadastrado);
+        cliente[0].entregar();
+      }else {
+        console.log(`O CPF ${cpfCadastrado} é inválido! Entre com um CPF cadastrado.`);
+        
+      }
+
       break;
     case "4":
       // Listar veiculos disponiveis

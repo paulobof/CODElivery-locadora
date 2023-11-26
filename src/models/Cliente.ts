@@ -12,10 +12,15 @@ export default class Cliente {
 
     if (veiculoEscolhido) {
       this.veiculo = veiculoEscolhido;
+
       veiculoEscolhido.alterarDisponibilidade();
       Agencia.cadastrarCliente(this)
+      console.log(this);
+
+      // alterar lógica de validação.
+      
       console.log("VEICULO ALUGADO COM SUCESSO!!!");
-    } else{
+    } else {
       console.log("ERRO - NÃO FOI POSSIVEL ALUGAR O VEICULO!!!");
     }
   }
@@ -32,3 +37,4 @@ export default class Cliente {
     }
   }
 }
+
