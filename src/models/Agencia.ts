@@ -26,15 +26,19 @@ export default class Agencia {
     return this.clientes.some((cliente) => cliente.cpf === cpfcliente)
   }
     
-  
-  static cadastrarCliente({nomeDoCliente, cpfDoCliente, cnhDoCliente}: Cliente){
-    if(!this.verificarClienteCadastrado(cpfDoCliente))
-    this.clientes.push({nome: nomeDoCliente, cpf: cpfDoCliente, cnh: cnhDoCliente})
+  static encontrarCliente(cpfcliente: string){
+    return this.clientes.filter((cliente) => cliente.cpf === cpfcliente)
+  };
+
+
+  static cadastrarCliente(cliente: Cliente){
+    
+    this.clientes.push(cliente);
   }
 
   static deletarCliente(cpfcliente: string){
     if(this.verificarClienteCadastrado(cpfcliente)){
-    this.clientes.splice(clientes.findIndex(cliente => cliente.cpf === cpfcliente), 1)} return
+    this.clientes.splice(Agencia.clientes.findIndex(cliente => cliente.cpf === cpfcliente), 1)}else {} return
   }
 
   static listarDisponiveis() {
