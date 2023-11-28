@@ -48,21 +48,20 @@ Boa codificação!
 
 Você precisar ter instalado em seu computador: [GIT](https://git-scm.com/), [Node.js](https://github.com/rafael-neri/projeto-poo.git) e [Visual Studio Code](https://code.visualstudio.com/).
 
-Para executar o código typescript você precisa instalar o ts-node:
+Para executar o código typescript você precisa instalar as dependencias
 ```sh
-npm install -g ts-node
+npm install
 ```
 
 Para acessar o projeto:
 ```sh
 git clone https://github.com/paulobof/CODElivery-locadora.git
 cd CODElivery-locadora
-code .
 ```
 
 Para executar o projeto:
 ```sh
-ts-node ./src/App.ts
+npx tsx ./src/App.ts
 ```
 
 Desenvolvido por CODElivery

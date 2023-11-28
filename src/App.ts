@@ -43,7 +43,7 @@ Selecione a opcao:
         veiculoTipo = rl.question(
           "Insira A para cadastrar moto, ou B para cadastrar carro: "
         );
-      } while (veiculoTipo !== "A" && veiculoTipo !== "B");
+      } while (veiculoTipo !== "A" && veiculoTipo !== "B" && veiculoTipo !== "a" && veiculoTipo !== "b");
 
       const placa = rl.question("Placa: ");
 
@@ -75,14 +75,14 @@ Selecione a opcao:
       do {
         cnh = rl.question(
           "Insira A para CNH de moto, ou B para CNH de carro: "
-        );
-      } while (cnh !== "A" && cnh !== "a" && cnh !== "B" && cnh !== "b");
+        ).toUpperCase();
+      } while (cnh !== "A" && cnh !== "B");
 
       let cliente = new Cliente(nome, cpf, cnh);
 
       if(!Agencia.verificarClienteCadastrado(cliente.cpf)){
 
-      if (cnh === "A" || cnh === "a") {
+      if (cnh === "A") {
         const motosDisponiveis = Agencia.listarDisponiveis().filter(
           (e) => e.tipo === "A"
         );

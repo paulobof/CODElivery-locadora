@@ -30,9 +30,7 @@ export default class Agencia {
     return this.clientes.filter((cliente) => cliente.cpf === cpfcliente)
   };
 
-
   static cadastrarCliente(cliente: Cliente){
-    
     this.clientes.push(cliente);
   }
 
@@ -45,7 +43,6 @@ export default class Agencia {
     const veiculosDisponiveis = Agencia.veiculos.filter(
       (e) => e.disponibilidade === true
     );
-
     return veiculosDisponiveis;
   }
 
@@ -53,7 +50,6 @@ export default class Agencia {
     const veiculosAlugados = Agencia.veiculos.filter(
       (e) => e.disponibilidade === false
     );
-
     return veiculosAlugados;
   }
 
